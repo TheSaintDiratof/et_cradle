@@ -1,0 +1,96 @@
+/* Основные стили */
+:root {
+  --leti-blue: #003366;
+  --leti-light-blue: #005b96;
+  --leti-gold: #d4af37;
+  --leti-white: #f8f9fa;
+  --leti-gray: #6c757d;
+  --leti-dark: #343a40;
+}
+
+/* Основные стили */
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  font-size: 16px;
+  color: var(--leti-dark);
+  background-color: var(--leti-white);
+  margin: 0;
+  padding: 0;
+}
+
+/* Хедер */
+.headnav {
+  grid-area: head;
+  background-color: var(--leti-blue);
+  color: var(--leti-white);
+  border-bottom: 1px solid var(--leti-gold);
+  padding: 10px;
+  height: 100px;
+  position: relative;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+/* Основной текст */
+.plain-text {
+  color: var(--leti-dark);
+  margin-bottom: 1rem;
+  padding: 0 1rem;
+}
+
+/* Изображения */
+.image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+  margin: 1rem 0;
+}
+
+/* Подписи к изображениям */
+.plain-text-img {
+  color: var(--leti-gray);
+  font-size: 0.9rem;
+  text-align: center;
+  margin-top: -0.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Ссылки */
+.link {
+  color: var(--leti-light-blue);
+  text-decoration: none;
+  font-size: 20px;
+  transition: color 0.3s;
+}
+
+.link:hover {
+  color: var(--leti-blue);
+  text-decoration: underline;
+}
+
+/* Навигационные ссылки (якоря) */
+.navigation {
+  color: var(--leti-gold);
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.navigation:hover {
+  color: #b38f2a;
+  text-decoration: underline;
+}
+
+/* Дополнительные стили для улучшения читаемости */
+h1, h2, h3, h4 {
+  color: var(--leti-blue);
+  margin-top: 1.5rem;
+}
+
+code {
+  background-color: #f0f0f0;
+  padding: 2px 4px;
+  border-radius: 3px;
+  font-family: monospace;
+}
