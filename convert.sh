@@ -66,8 +66,8 @@ while IFS= read -r line; do
     if [[ $line == *"(заголовок)"* ]]; then
         title=$(get_content "заголовок" "$line")
     elif [[ $line == *"(блок "* ]]; then
-        block_id=$(echo "$line" | sed 's/.*(блок \([^)]*\)).*/\1/')
-        block_ids=$(echo "$block_ids $block_id")
+        block_id=$(echo "$line" | sed -e 's/.*(блок \([^)]*\)).*/\1/' -e 's/ /;;/g' )
+        block_ids+=($block_id)
     fi
 done < "$input_file"
 while IFS= read -r line; do
@@ -82,7 +82,7 @@ while IFS= read -r line; do
 EOF
         echo '<div class="headnav">' >> "$output_file"
         if [[ $mode != "plain-text" ]]; then
-            echo '<img src="/logo.png" alt="Логотип ЛЭТИ" width="100" height="100">' >> "$output_file"
+            echo '<img src="/logo.png" alt="Логотип ЛЭТИ" width="214" height="107">' >> "$output_file"
         fi
         cat << EOF >> "$output_file"
 <a href="/$mode/$color/index.html" class="navigation">Главная</a>
@@ -96,7 +96,8 @@ EOF
 
             echo '<div class="sidenav">' >> "$output_file"
             echo '<ul>' >> "$output_file"
-            for i in $block_ids; do
+            for i in ${block_ids[@]}; do
+              i="$(echo $i | sed 's/;;/ /g')"
               echo "<li><a href=\"#$i\" class=\"navigation\">$i</a></li>" >> "$output_file"
             done
             echo '<ul>' >> "$output_file"
