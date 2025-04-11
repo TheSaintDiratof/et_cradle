@@ -124,7 +124,7 @@ EOF
       elif [[ $line = *"(/параграф)"* ]]; then
         echo "$line" | sed -e 's/(\/параграф)/<\/p>/' >> "$output_file"
     elif [[ $line == *"(ссылка "?*")"* ]]; then
-        echo "$line" | sed -e 's/(ссылка на="\([^"]*\)")/<a href="\1" class="link">/g' -e 's/(\/ссылка)/<\/a>/g' >> "$output_file"
+        echo "$line" | sed -e "s/(ссылка на=\"\([^\"]*\)\")/<a href=\"\/$mode\/$color\1\" class=\"link\">/g" -e 's/(\/ссылка)/<\/a>/g' >> "$output_file"
     elif [[ $line == *"(изображение"?*")"* ]]; then
       alt=$(echo "$line" | sed 's/.*(изображение \([^)]*\)).*/\1/')
       if [[ $mode != "plain-text" ]]; then
