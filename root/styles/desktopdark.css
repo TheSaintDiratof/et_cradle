@@ -1,10 +1,10 @@
 /* Основные стили */
 :root {
-  --leti-blue: #003366;
+  --leti-blue: #05336e;
   --leti-light-blue: #005b96;
-  --leti-gold: #d4af37;
+  --leti-gold: #bb8d54;
   --leti-white: #f8f9fa;
-  --leti-gray: #6c757d;
+  --leti-gray: #6d6e71;
   --leti-dark: #343a40;
 }
 
@@ -57,7 +57,7 @@ body {
 
 /* Основной текст */
 .plain-text {
-  color: var(--leti-dark);
+  color: var(--leti-white);
   margin-bottom: 1rem;
   padding: 0 1rem;
 }
